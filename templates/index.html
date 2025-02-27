@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Step Calculator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="flash-message {{ category }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <h1>Step Calculator</h1>
+        <form method="POST" id="stepCalculatorForm" action="{{ url_for('index') }}">
+            <label for="calories">Calories to burn:</label>
+            <input type="number" id="calories" name="calories" required step="1" min="1" value="{{ request.form['calories'] }}">
+            <span class="error" id="caloriesError"></span>
+
+            <label for="weight">Weight (kg):</label>
+            <input type="number" id="weight" name="weight" required step="0.1" min="1" max="500" value="{{ request.form['weight'] }}">
+            <span class="error" id="weightError"></span>
+
+            <label for="pace">Pace:</label>
+            <select id="pace" name="pace" required>
+                <option value="Slow" {% if request.form['pace'] == 'Slow' %}selected{% endif %}>Slow</option>
+                <option value="Moderate" {% if request.form['pace'] == 'Moderate' %}selected{% endif %}>Moderate</option>
+                <option value="Brisk" {% if request.form['pace'] == 'Brisk' %}selected{% endif %}>Brisk</option>
+            </select>
+
+            <button type="submit">Calculate Steps</button>
+        </form>
+
+        {% if steps %}
+        <div class="result">
+            <h2>Estimated Steps:</h2>
+            <p>{{ steps }}</p>
+        </div>
+        {% endif %}
+    </div>
+
+    <script>
+        document.getElementById('stepCalculatorForm').addEventListener('submit', function(event) {
+            let isValid = true;
+            const calories = document.getElementById('calories');
+            const weight = document.getElementById('weight');
+
+            // Validate calories
+            if (calories.value < 1) {
+                document.getElementById('caloriesError').textContent = 'Calories must be a positive number';
+                isValid = false;
+            } else {
+                document.getElementById('caloriesError').textContent = '';
+            }
+
+            // Validate weight
+            if (weight.value < 1 || weight.value > 500) {
+                document.getElementById('weightError').textContent = 'Weight must be between 1 and 500 kg';
+                isValid = false;
+            } else {
+                document.getElementById('weightError').textContent = '';
+            }
+
+            if (!isValid) {
+                event.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>

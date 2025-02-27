@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    ports:
+      - "5001:5001"
+    environment:
+      - FLASK_ENV=production
+      - SECRET_KEY=${SECRET_KEY}  # Replace this with a secure secret key in production
+    volumes:
+      - ./:/app
+    command: gunicorn --bind 0.0.0.0:5001 app:app
