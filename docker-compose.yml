@@ -7,7 +7,12 @@ services:
       - "5001:5001"
     environment:
       - FLASK_ENV=production
-      - SECRET_KEY=${SECRET_KEY}  # Replace this with a secure secret key in production
+      - SECRET_KEY=${SECRET_KEY}
     volumes:
       - ./:/app
-    command: gunicorn --bind 0.0.0.0:5001 app:app
+    command: python -m src.app
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5001/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
