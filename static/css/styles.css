@@ -483,3 +483,23 @@ section:last-child {
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
+/* SVG Title with Video Background */
+.title-svg {
+    width: 100%;
+    height: auto;
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    display: block;
+}
+
+.title-svg text {
+    font-family: 'IBM Plex Sans', 'IBM Plex Serif', sans-serif;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .title-svg {
+        max-width: 100%;
+    }
+}

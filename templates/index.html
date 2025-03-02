@@ -6,7 +6,25 @@
 
 {% block content %}
 <div class="container">
-    <h1>Walk Your Calories</h1>
+    <svg viewBox="0 0 800 200" xmlns="http://www.w3.org/2000/svg" class="title-svg">
+        <defs>
+            <mask id="text-mask">
+                <rect width="100%" height="100%" fill="black" />
+                <text x="50%" y="50%" dy=".35em" text-anchor="middle" font-size="80" fill="white">
+                    Walk Your Calories
+                </text>
+            </mask>
+        </defs>
+        <foreignObject width="100%" height="100%">
+            <div xmlns="http://www.w3.org/1999/xhtml"
+                 style="width:800px; height:200px; mask: url(#text-mask); -webkit-mask: url(#text-mask);">
+                <video autoplay muted loop width="800" height="200" style="object-fit: cover;">
+                    <source src="{{ url_for('static', filename='videos/nature2.mp4') }}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </foreignObject>
+    </svg>
     <h2>Calorie to Steps Calculator</h2>
     <p>Discover how many steps it takes to burn off your favorite foods. Our innovative calculator turns calorie counts into achievable walking targets, helping you manage your weight and improve your overall health.</p>
 
