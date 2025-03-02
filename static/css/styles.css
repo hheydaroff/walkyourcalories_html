@@ -1,5 +1,5 @@
 /* Global Styles */
-@import url('https://fonts.googleapis.com/css?family=Fjalla+One&display=swap');
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono&display=swap');
 
 :root {
     --color-alabaster: #f3f0e8;
@@ -138,7 +138,7 @@ footer {
     box-shadow: 15px 15px 1px var(--color-sage), 15px 15px 1px 2px var(--color-ebony);
     max-width: 600px;
     margin: 2rem auto;
-    font-family: 'Fjalla One', sans-serif;
+    font-family: 'IBM Plex Mono', monospace;
 }
 
 #calculator-form {
@@ -163,7 +163,7 @@ footer {
     width: 100%;
     font-size: 14pt;
     line-height: 28pt;
-    font-family: 'Fjalla One', sans-serif;
+    font-family: 'IBM Plex Mono', monospace;
     margin-bottom: 28pt;
     border: none;
     border-bottom: 5px solid var(--color-ebony);
@@ -191,7 +191,7 @@ footer {
     border: 1px solid var(--color-ebony);
     box-shadow: 3px 3px 1px 1px var(--color-platinum), 3px 3px 1px 2px var(--color-ebony);
     color: var(--color-ebony);
-    font-family: 'Fjalla One', sans-serif;
+    font-family: 'IBM Plex Mono', monospace;
     font-size: 14pt;
 }
 
@@ -210,6 +210,7 @@ footer {
     text-align: center;
     font-size: 16pt;
     color: var(--color-ebony);
+    font-family: 'IBM Plex Mono', monospace;
 }
 
 ::selection {
