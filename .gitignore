@@ -55,3 +55,6 @@ develop-eggs/
 
 # git
 .git
+
+#cline_docs stuff
+cline_docs/
