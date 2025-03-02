@@ -1,4 +1,4 @@
-def calculate_steps(calories, weight, height, pace):
+def calculate_steps(calories, weight, pace):
     # Constants for MET values (Metabolic Equivalent of Task)
     MET_SLOW = 2.9
     MET_MODERATE = 3.3
@@ -20,17 +20,16 @@ def calculate_steps(calories, weight, height, pace):
     # Calculate total minutes needed to burn the given calories
     minutes = calories / calories_per_minute
 
-    # Estimate steps based on height and pace
+    # Estimate steps based on pace
     # A rough estimate is that a person takes about 2000 steps to walk a mile
     # and an average person walks about 3 miles per hour at a moderate pace
     steps_per_minute = 2000 / 20  # 2000 steps per mile / 20 minutes per mile
 
-    # Adjust steps per minute based on height and pace
-    height_factor = height / 170  # 170 cm is average height
+    # Adjust steps per minute based on pace
     if pace == 'slow':
-        steps_per_minute *= 0.8 * height_factor
+        steps_per_minute *= 0.8
     elif pace == 'fast':
-        steps_per_minute *= 1.2 * height_factor
+        steps_per_minute *= 1.2
 
     # Calculate total steps
     steps = int(minutes * steps_per_minute)

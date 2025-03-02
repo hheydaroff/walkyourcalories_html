@@ -32,10 +32,9 @@ def register_routes(app):
         data = request.json
         calories = data.get('calories')
         weight = data.get('weight')
-        height = data.get('height')
         pace = data.get('pace')
 
-        errors = validate_input(calories, weight, height, pace)
+        errors = validate_input(calories, weight, pace)
 
         if errors:
             return jsonify({"errors": errors}), 400
@@ -43,10 +42,9 @@ def register_routes(app):
         try:
             calories = float(calories) if calories else 0
             weight = float(weight) if weight else 70
-            height = float(height) if height else 170
             pace = pace if pace else 'moderate'
 
-            steps = calculate_steps(calories, weight, height, pace)
+            steps = calculate_steps(calories, weight, pace)
             return jsonify({"steps": steps})
         except Exception as e:
             app.logger.error(f"Error calculating steps: {str(e)}")
