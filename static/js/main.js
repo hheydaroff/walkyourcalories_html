@@ -43,13 +43,4 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     });
-
-    // Carousel functionality
-    function initCarousel() {
-        const track = document.querySelector('.carousel-track');
-        const slides = Array.from(track.children);
-        const nextButton = document.createElement('button');
-        const prevButton = document.createElement('button');
-        const dotsNav = document.createElement('div');
-        const slideWidth = slides[0].getBoundingClientRect().width;
-
+});

@@ -1,5 +1,7 @@
 /* Global Styles */
 @import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Serif:400,700&display=swap');
 
 :root {
     --color-alabaster: #f3f0e8;
@@ -10,7 +12,7 @@
 }
 
 body {
-    font-family: 'Lato', sans-serif;
+    font-family: 'IBM Plex Sans', 'IBM Plex Serif', sans-serif;
     font-size: 16px;
     line-height: 1.5;
     color: var(--color-davys-gray);
@@ -49,7 +51,7 @@ body::after {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Fjalla One', sans-serif;
+    font-family: 'IBM Plex Sans', 'IBM Plex Serif', sans-serif;
     color: var(--color-ebony);
 }
 
@@ -83,10 +85,26 @@ header {
     margin-bottom: 2rem;
 }
 
-nav {
-    width: 100%;
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     max-width: 800px;
     margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo-link {
+    display: block;
+}
+
+.logo {
+    width: 50px;
+    height: auto;
+}
+
+nav {
+    flex-grow: 1;
 }
 
 nav ul {
@@ -138,7 +156,7 @@ footer {
     box-shadow: 15px 15px 1px var(--color-sage), 15px 15px 1px 2px var(--color-ebony);
     max-width: 600px;
     margin: 2rem auto;
-    font-family: 'IBM Plex Mono', monospace;
+    font-family: 'IBM Plex Sans', 'IBM Plex Serif', sans-serif;
 }
 
 #calculator-form {
@@ -163,7 +181,7 @@ footer {
     width: 100%;
     font-size: 14pt;
     line-height: 28pt;
-    font-family: 'IBM Plex Mono', monospace;
+    font-family: 'IBM Plex Sans', 'IBM Plex Serif', sans-serif;
     margin-bottom: 28pt;
     border: none;
     border-bottom: 5px solid var(--color-ebony);
@@ -191,7 +209,7 @@ footer {
     border: 1px solid var(--color-ebony);
     box-shadow: 3px 3px 1px 1px var(--color-platinum), 3px 3px 1px 2px var(--color-ebony);
     color: var(--color-ebony);
-    font-family: 'IBM Plex Mono', monospace;
+    font-family: 'IBM Plex Sans', 'IBM Plex Serif', sans-serif;
     font-size: 14pt;
 }
 
@@ -210,7 +228,7 @@ footer {
     text-align: center;
     font-size: 16pt;
     color: var(--color-ebony);
-    font-family: 'IBM Plex Mono', monospace;
+    font-family: 'IBM Plex Sans', 'IBM Plex Serif', sans-serif;
 }
 
 ::selection {
@@ -247,5 +265,220 @@ footer {
     }
 }
 
-/* Rest of the existing styles */
-/* ... (keep the existing styles for other sections) ... */
+@media (max-width: 819px) {
+    .container {
+        padding: 2rem 15px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 0 0 0.5rem;
+    }
+}
+
+@media (min-width: 820px) {
+    body {
+        padding: 2rem 0;
+    }
+
+    .container, nav, footer {
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary {
+    background-color: var(--color-ebony);
+    color: var(--color-alabaster);
+}
+
+.btn-primary:hover {
+    background-color: #4a5446;
+}
+
+.btn-secondary {
+    background-color: var(--color-sage);
+    color: var(--color-ebony);
+}
+
+.btn-secondary:hover {
+    background-color: #a5a58d;
+}
+
+/* Forms */
+input[type="number"],
+input[type="text"] {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid var(--color-davys-gray);
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .logo {
+        width: 40px;
+        margin-bottom: 1rem;
+    }
+
+    nav {
+        width: 100%;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin-bottom: 0.5rem;
+    }
+}
+
+/* Utility Classes */
+.text-center { text-align: center; }
+.mt-1 { margin-top: 1rem; }
+.mb-1 { margin-bottom: 1rem; }
+.mt-2 { margin-top: 2rem; }
+.mb-2 { margin-bottom: 2rem; }
+
+/* Section Spacing */
+section {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--color-platinum);
+}
+
+section:last-child {
+    border-bottom: none;
+}
+
+/* Styles for the "Did You Know?" sliding gallery */
+.carousel-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    background-color: var(--color-platinum);
+    border-radius: 8px;
+    padding: 1rem 0;
+}
+
+.carousel-track {
+    display: flex;
+    width: 1000%; /* 10 slides * 100% */
+    animation: slide 90s linear infinite;
+}
+
+.carousel-slide {
+    flex: 0 0 10%; /* Each slide takes 10% of the track width */
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-slide p {
+    margin: 0;
+    font-size: 1em;
+    font-style: italic;
+    color: var(--color-ebony);
+    text-align: center;
+    position: relative;
+    padding: 0 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 100%;
+    line-height: 1.4;
+}
+
+.carousel-slide p::before,
+.carousel-slide p::after {
+    content: '"';
+    font-size: 1.5em;
+    color: var(--color-sage);
+    position: absolute;
+    top: -5px;
+}
+
+.carousel-slide p::before {
+    left: -5px;
+}
+
+.carousel-slide p::after {
+    right: -5px;
+}
+
+@keyframes slide {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-90%); /* Move left by 9 slides (90% of total width) */
+    }
+}
+
+/* Pause animation on hover */
+.carousel-container:hover .carousel-track {
+    animation-play-state: paused;
+}
+
+/* Features List */
+#features ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#features li {
+    margin-bottom: 1rem;
+    padding-left: 30px;
+    position: relative;
+}
+
+#features li::before {
+    content: '✓';
+    color: var(--color-sage);
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-weight: bold;
+}
+
+/* Call-to-Action Button */
+#cta {
+    text-align: center;
+}
+
+#cta .btn {
+    font-size: 1.2em;
+    padding: 0.75rem 1.5rem;
+    transition: all 0.3s ease;
+}
+
+#cta .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
