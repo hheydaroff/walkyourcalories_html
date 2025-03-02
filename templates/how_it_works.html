@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block title %}How Walk Your Calories Works | Calorie to Steps Conversion Guide{% endblock %}
+
+{% block meta_description %}Learn how Walk Your Calories turns food calories into steps. Quick, accurate, and easy to use – start walking your way to fitness today!{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>From Plate to Pedometer: The Science of Step Conversion</h1>
+
+    <section id="process">
+        <h2>How It Works</h2>
+        <ol>
+            <li>
+                <h3>1. Input Your Calorie Data</h3>
+                <p>Enter the number of calories you want to burn or choose from our extensive food database.</p>
+            </li>
+            <li>
+                <h3>2. Provide Your Personal Information</h3>
+                <p>Enter your weight, height, and choose your walking pace (slow, moderate, or fast).</p>
+            </li>
+            <li>
+                <h3>3. Our Calculator Does the Math</h3>
+                <p>Our advanced algorithm calculates how many steps you need to take to burn those calories.</p>
+            </li>
+            <li>
+                <h3>4. Get Your Personalized Result</h3>
+                <p>Receive an estimate of the number of steps tailored to your specific inputs.</p>
+            </li>
+        </ol>
+    </section>
+
+    <section id="calculation-explanation">
+        <h2>Understanding the Calculation</h2>
+        <p>Our calculator uses a scientific approach to convert calories into steps. Here's how it works:</p>
+        
+        <h3>1. Determining Energy Expenditure</h3>
+        <p>We use a measure called MET (Metabolic Equivalent of Task) to estimate how much energy you burn while walking. The MET value changes based on your walking pace:</p>
+        <ul>
+            <li>Slow walking: Lower energy expenditure</li>
+            <li>Moderate walking: Medium energy expenditure</li>
+            <li>Fast walking: Higher energy expenditure</li>
+        </ul>
+
+        <h3>2. Calculating Calories Burned per Minute</h3>
+        <p>Using your weight and the MET value, we calculate how many calories you burn per minute of walking.</p>
+
+        <h3>3. Time Needed to Burn Calories</h3>
+        <p>We then determine how many minutes of walking it would take to burn the number of calories you specified.</p>
+
+        <h3>4. Converting Time to Steps</h3>
+        <p>Finally, we estimate how many steps you would take in that time, considering:</p>
+        <ul>
+            <li>Your height (which affects your stride length)</li>
+            <li>Your walking pace</li>
+            <li>Average steps per mile (about 2,000 for a person of average height)</li>
+        </ul>
+
+        <p>This process gives you a personalized estimate of steps needed to burn your specified calories, tailored to your body and walking style.</p>
+    </section>
+
+    <section id="calculator">
+        <h2>Try It Yourself</h2>
+        {% include '_calculator_widget.html' %}
+    </section>
+
+    <section id="cta">
+        <a href="{{ url_for('benefits') }}" class="btn btn-primary">Explore the Benefits</a>
+    </section>
+</div>
+{% endblock %}

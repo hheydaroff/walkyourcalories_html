@@ -51,3 +51,7 @@ var/
 sdist/
 develop-eggs/
 .installed.cfg
+
+
+# git
+.git

@@ -93,3 +93,45 @@ button:hover {
     font-size: 0.9rem;
     margin-top: 0.25rem;
 }
+
+/* Styles for the "Did You Know?" sliding gallery */
+.carousel-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel-track {
+    display: flex;
+    width: 1000%; /* 10 slides * 100% */
+    animation: slide 30s linear infinite;
+}
+
+.carousel-slide {
+    flex: 0 0 10%; /* Each slide takes 10% of the track width */
+    padding: 15px;
+    box-sizing: border-box;
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.carousel-slide p {
+    margin: 0;
+    font-size: 0.9em;
+}
+
+@keyframes slide {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-90%); /* Move left by 9 slides (90% of total width) */
+    }
+}
+
+/* Pause animation on hover */
+.carousel-container:hover .carousel-track {
+    animation-play-state: paused;
+}

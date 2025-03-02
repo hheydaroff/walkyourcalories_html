@@ -1,77 +1,69 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Step Calculator</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-</head>
-<body>
-    <div class="container">
-        {% with messages = get_flashed_messages(with_categories=true) %}
-            {% if messages %}
-                {% for category, message in messages %}
-                    <div class="flash-message {{ category }}">
-                        {{ message }}
-                    </div>
-                {% endfor %}
-            {% endif %}
-        {% endwith %}
+{% extends "base.html" %}
 
-        <h1>Step Calculator</h1>
-        <form method="POST" id="stepCalculatorForm" action="{{ url_for('index') }}">
-            <label for="calories">Calories to burn:</label>
-            <input type="number" id="calories" name="calories" required step="1" min="1" value="{{ request.form['calories'] }}">
-            <span class="error" id="caloriesError"></span>
+{% block title %}Walk Your Calories: Calorie to Steps Calculator | Fitness Tracking Tool{% endblock %}
 
-            <label for="weight">Weight (kg):</label>
-            <input type="number" id="weight" name="weight" required step="0.1" min="1" max="500" value="{{ request.form['weight'] }}">
-            <span class="error" id="weightError"></span>
+{% block meta_description %}Convert food calories to walking steps instantly. Make informed health decisions with our science-backed calorie-to-steps calculator. Try it today!{% endblock %}
 
-            <label for="pace">Pace:</label>
-            <select id="pace" name="pace" required>
-                <option value="Slow" {% if request.form['pace'] == 'Slow' %}selected{% endif %}>Slow</option>
-                <option value="Moderate" {% if request.form['pace'] == 'Moderate' %}selected{% endif %}>Moderate</option>
-                <option value="Brisk" {% if request.form['pace'] == 'Brisk' %}selected{% endif %}>Brisk</option>
-            </select>
+{% block content %}
+<div class="container">
+    <h1>Transform Your Calories into Steps</h1>
+    <p>Discover how many steps it takes to burn off your favorite foods. Our innovative calculator turns calorie counts into achievable walking targets, helping you manage your weight and improve your overall health.</p>
 
-            <button type="submit">Calculate Steps</button>
-        </form>
-
-        {% if steps %}
-        <div class="result">
-            <h2>Estimated Steps:</h2>
-            <p>{{ steps }}</p>
+    <section id="facts-carousel">
+        <h2>Did You Know?</h2>
+        <div class="carousel-container">
+            <div class="carousel-track">
+                <div class="carousel-slide">
+                    <p>Most people burn between 0.04 and 0.05 calories per step, though this varies based on individual factors.</p>
+                </div>
+                <div class="carousel-slide">
+                    <p>For a person weighing around 160 lbs (72.5 kg), it takes approximately 2,500 steps at an average pace (3 mph) to burn 100 calories.</p>
+                </div>
+                <div class="carousel-slide">
+                    <p>Walking 10,000 steps burns approximately 300-500 calories for an average person weighing about 70 kg (154 lb).</p>
+                </div>
+                <div class="carousel-slide">
+                    <p>The heavier you are, the more calories you burn per step - extremely overweight individuals may burn up to 3 times more calories per step than a person of normal weight.</p>
+                </div>
+                <div class="carousel-slide">
+                    <p>Walking at a faster pace (4 mph vs. 3 mph) reduces the number of steps needed to burn 100 calories from about 2,500 to 2,000.</p>
+                </div>
+                <div class="carousel-slide">
+                    <p>Most people burn 30-40 calories for every 1,000 steps they walk.</p>
+                </div>
+                <div class="carousel-slide">
+                    <p>10,000 steps is equivalent to approximately 4.5-5 miles (7.24-8 km) of walking distance.</p>
+                </div>
+                <div class="carousel-slide">
+                    <p>Walking 10,000 steps typically takes about 1.5-2 hours at a casual pace of 3.2 mph (5.15 kph).</p>
+                </div>
+                <div class="carousel-slide">
+                    <p>Running the same distance as 10,000 steps (about 4.5-5 miles) would burn roughly double the calories compared to walking.</p>
+                </div>
+                <div class="carousel-slide">
+                    <p>Your age affects calorie burn - as you get older, your metabolism slows down, and you burn fewer calories per step.</p>
+                </div>
+            </div>
         </div>
-        {% endif %}
-    </div>
+    </section>
 
-    <script>
-        document.getElementById('stepCalculatorForm').addEventListener('submit', function(event) {
-            let isValid = true;
-            const calories = document.getElementById('calories');
-            const weight = document.getElementById('weight');
+    <section id="calculator">
+        {% include '_calculator_widget.html' %}
+    </section>
 
-            // Validate calories
-            if (calories.value < 1) {
-                document.getElementById('caloriesError').textContent = 'Calories must be a positive number';
-                isValid = false;
-            } else {
-                document.getElementById('caloriesError').textContent = '';
-            }
+    <section id="features">
+        <h2>Key Features</h2>
+        <ul>
+            <li>Instant calorie-to-step conversions for over 10,000 food items</li>
+            <li>Customizable profiles accounting for weight, height, and stride length</li>
+            <li>Integration with popular fitness trackers</li>
+            <li>Data-driven calculations for accurate results</li>
+        </ul>
+    </section>
 
-            // Validate weight
-            if (weight.value < 1 || weight.value > 500) {
-                document.getElementById('weightError').textContent = 'Weight must be between 1 and 500 kg';
-                isValid = false;
-            } else {
-                document.getElementById('weightError').textContent = '';
-            }
+    <section id="cta">
+        <a href="{{ url_for('how_it_works') }}" class="btn btn-primary">Learn How It Works</a>
+    </section>
+</div>
+{% endblock %}
 
-            if (!isValid) {
-                event.preventDefault();
-            }
-        });
-    </script>
-</body>
-</html>

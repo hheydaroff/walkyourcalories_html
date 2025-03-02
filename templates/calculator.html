@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block title %}Walk Your Calories Calculator | Convert Calories to Steps{% endblock %}
+
+{% block meta_description %}Use our advanced calorie-to-steps calculator to plan your walking routine. Input your details for a personalized estimate of steps needed to burn calories.{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Walk Your Calories Calculator</h1>
+
+    <section id="calculator-intro">
+        <p>Our advanced calculator helps you convert calories into steps, taking into account your personal metrics for the most accurate results. Simply input your details below to get started.</p>
+    </section>
+
+    <section id="full-calculator">
+        <h2>Calorie to Steps Calculator</h2>
+        <form id="calculator-form">
+            <div class="form-group">
+                <label for="calories">Calories:</label>
+                <input type="number" id="calories" name="calories" required min="1">
+            </div>
+            <div class="form-group">
+                <label for="weight">Weight (kg):</label>
+                <input type="number" id="weight" name="weight" required min="1" step="0.1">
+            </div>
+            <div class="form-group">
+                <label for="height">Height (cm):</label>
+                <input type="number" id="height" name="height" required min="1">
+            </div>
+            <div class="form-group">
+                <label for="pace">Pace:</label>
+                <select id="pace" name="pace" required>
+                    <option value="slow">Slow</option>
+                    <option value="moderate">Moderate</option>
+                    <option value="fast">Fast</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Calculate Steps</button>
+        </form>
+        <div id="result"></div>
+    </section>
+
+    <section id="how-to-use">
+        <h2>How to Use This Calculator</h2>
+        <ol>
+            <li><strong>Enter Calories:</strong> Input the number of calories you want to burn.</li>
+            <li><strong>Input Your Weight:</strong> Enter your current weight in kilograms for accurate calculations.</li>
+            <li><strong>Specify Your Height:</strong> Provide your height in centimeters to help calculate your stride length.</li>
+            <li><strong>Choose Your Pace:</strong> Select your walking pace (slow, moderate, or fast) to fine-tune the calculation.</li>
+            <li><strong>Get Your Results:</strong> Click "Calculate Steps" to see how many steps you need to take to burn the specified calories.</li>
+        </ol>
+    </section>
+
+    <section id="tips">
+        <h2>Tips for Accurate Results</h2>
+        <ul>
+            <li>Use your current weight for the most precise calculations.</li>
+            <li>Be honest about your walking pace for realistic step estimates.</li>
+            <li>Remember that these are estimates and individual results may vary.</li>
+            <li>Consult with a healthcare professional before starting any new exercise regimen.</li>
+        </ul>
+    </section>
+
+    <section id="cta">
+        <h2>Want to Learn More?</h2>
+        <a href="{{ url_for('how_it_works') }}" class="btn btn-secondary">Discover How It Works</a>
+        <a href="{{ url_for('benefits') }}" class="btn btn-primary">Explore the Benefits</a>
+    </section>
+</div>
+{% endblock %}

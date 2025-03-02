@@ -1,7 +1,7 @@
-# Step Calories Calculator
+# Walk Your Calories
 
 ## Overview
-The Step Calories Calculator is a web application that helps users estimate the number of steps needed to burn a specific amount of calories. It takes into account the user's weight and walking pace to provide a personalized calculation.
+Walk Your Calories is a web application that helps users estimate the number of steps needed to burn a specific amount of calories. It takes into account the user's weight and walking pace to provide a personalized calculation. The application is currently undergoing a major frontend redesign and feature expansion to enhance user experience and provide more comprehensive information about the benefits of walking.
 
 ## Table of Contents
 - [Features](#features)
@@ -12,31 +12,42 @@ The Step Calories Calculator is a web application that helps users estimate the 
 - [Docker Deployment](#docker-deployment)
 - [Running Tests](#running-tests)
 - [Project Structure](#project-structure)
+- [Frontend Implementation Timeline](#frontend-implementation-timeline)
 - [Contributing](#contributing)
 - [License](#license)
 
 ## Features
 - Calculate steps based on calories, weight, and pace
 - Responsive web interface
+- Multiple informational pages (Home, How It Works, Benefits, FAQ, About Us)
+- Reusable calculator widget across pages
 - Dockerized for easy deployment
 - Unit tests for core functionality
 
 ## Technologies Used
-- Python 3.9+
-- Flask 3.1.0
-- Docker
-- pytest 8.3.4
+- Backend:
+  - Python 3.9+
+  - Flask 3.1.0
+  - pytest 8.3.4
+- Frontend:
+  - HTML5 (semantic elements)
+  - CSS3 (BEM methodology, CSS Grid, Flexbox)
+  - JavaScript (ES6+, Vanilla JS)
+- DevOps:
+  - Docker
+  - Docker Compose
 
 ## Prerequisites
 - Python 3.9+
 - Docker and Docker Compose (for containerized deployment)
+- Node.js and npm (for frontend development)
 
 ## Installation
 
 1. Clone the repository:
    ```
-   git clone https://github.com/yourusername/step-calories-calculator.git
-   cd step-calories-calculator
+   git clone https://github.com/yourusername/walk-your-calories.git
+   cd walk-your-calories
    ```
 
 2. Create a virtual environment and activate it:
@@ -110,11 +121,26 @@ project_root/
 ├── tests/
 │   └── test_calculator.py
 ├── static/
-│   └── styles.css
+│   ├── styles.css
+│   ├── js/
+│   │   └── main.js
+│   └── images/
 ├── templates/
+│   ├── base.html
+│   ├── index.html
+│   ├── how_it_works.html
+│   ├── benefits.html
+│   ├── faq.html
+│   ├── about_us.html
+│   ├── calculator.html
 │   ├── 404.html
-│   ├── 500.html
-│   └── index.html
+│   └── 500.html
+├── cline_docs/
+│   ├── projectRoadmap.md
+│   ├── currentTask.md
+│   ├── techStack.md
+│   ├── codebaseSummary.md
+│   └── frontend_implementation_timeline.md
 ├── .dockerignore
 ├── .env.example
 ├── .gitignore
@@ -124,6 +150,17 @@ project_root/
 ├── README.md
 └── requirements.txt
 ```
+
+## Frontend Implementation Timeline
+
+We are currently in the process of implementing a new frontend design and structure. The implementation is planned to be completed over a 10-week period, divided into 5 sprints. Each sprint is 2 weeks long and focuses on specific aspects of the frontend development. For more details, please refer to the [Frontend Implementation Timeline](cline_docs/frontend_implementation_timeline.md).
+
+Key milestones:
+1. End of Sprint 1 (Week 2): Basic structure and calculator widget completed
+2. End of Sprint 2 (Week 4): All main pages implemented with integrated calculator widget
+3. End of Sprint 3 (Week 6): Fully responsive and optimized frontend
+4. End of Sprint 4 (Week 8): Thoroughly tested and refined frontend
+5. End of Sprint 5 (Week 10): Production-ready frontend prepared for launch
 
 ## Contributing
 Contributions are welcome! Please feel free to submit a Pull Request.

@@ -1,47 +1,65 @@
-from flask import render_template, request, flash, jsonify
-from src.services.calculator import calculate_steps
-from src.utils.validators import validate_input
+from flask import render_template, request, jsonify
+from src.services import calculate_steps
+from src.utils import validate_input
 
 def register_routes(app):
-    @app.route('/', methods=['GET', 'POST'])
+    @app.route('/')
     def index():
-        if request.method == 'POST':
-            calories = request.form['calories']
-            weight = request.form['weight']
-            pace = request.form['pace']
-
-            app.logger.info(f"Received form data: calories={calories}, weight={weight}, pace={pace}")
-
-            errors = validate_input(calories, weight, pace)
-
-            if errors:
-                for error in errors:
-                    flash(error, 'error')
-                app.logger.warning(f"Invalid input: {', '.join(errors)}")
-                return render_template('index.html')
-
-            try:
-                steps = calculate_steps(float(calories), float(weight), pace)
-                app.logger.info(f"Calculated steps: {steps} for input: calories={calories}, weight={weight}, pace={pace}")
-                flash(f"Estimated steps to burn {calories} calories: {steps}", 'success')
-                return render_template('index.html', steps=steps)
-            except Exception as e:
-                app.logger.error(f"Error calculating steps: {str(e)}")
-                flash("An error occurred while calculating steps. Please try again.", 'error')
-                return render_template('index.html')
-        
         return render_template('index.html')
 
-    @app.route('/health', methods=['GET'])
+    @app.route('/how-it-works')
+    def how_it_works():
+        return render_template('how_it_works.html')
+
+    @app.route('/benefits')
+    def benefits():
+        return render_template('benefits.html')
+
+    @app.route('/faq')
+    def faq():
+        return render_template('faq.html')
+
+    @app.route('/about')
+    def about():
+        return render_template('about.html')
+
+    @app.route('/calculator')
+    def calculator():
+        return render_template('calculator.html')
+
+    @app.route('/api/calculate-steps', methods=['POST'])
+    def api_calculate_steps():
+        data = request.json
+        calories = data.get('calories')
+        weight = data.get('weight')
+        height = data.get('height')
+        pace = data.get('pace')
+
+        errors = validate_input(calories, weight, height, pace)
+
+        if errors:
+            return jsonify({"errors": errors}), 400
+
+        try:
+            calories = float(calories) if calories else 0
+            weight = float(weight) if weight else 70
+            height = float(height) if height else 170
+            pace = pace if pace else 'moderate'
+
+            steps = calculate_steps(calories, weight, height, pace)
+            return jsonify({"steps": steps})
+        except Exception as e:
+            app.logger.error(f"Error calculating steps: {str(e)}")
+            return jsonify({"error": "An error occurred while calculating steps. Please try again."}), 500
+
+    @app.route('/health')
     def health_check():
         return jsonify({"status": "healthy"}), 200
 
     @app.errorhandler(404)
     def page_not_found(e):
-        app.logger.error(f"404 error: {request.url}")
         return render_template('404.html'), 404
 
     @app.errorhandler(500)
     def internal_server_error(e):
-        app.logger.error(f"500 error: {str(e)}")
         return render_template('500.html'), 500

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}Benefits of Walk Your Calories | Calorie to Steps Converter{% endblock %}
+
+{% block meta_description %}Explore the benefits of our calorie-to-steps calculator. Achieve weight loss, track activity, and understand calorie burn with precision.{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Why Use Walk Your Calories?</h1>
+
+    <section id="benefits">
+        <h2>Benefits of Using Our Calculator</h2>
+        <div class="benefit-item">
+            <h3>Data-Driven Decisions for Better Health</h3>
+            <p>Make informed choices about your diet and exercise routine with real-time, scientifically-backed calculations.</p>
+        </div>
+        <div class="benefit-item">
+            <h3>Tailored for Weight Loss and Fitness</h3>
+            <p>Set achievable goals and track your progress effectively.</p>
+        </div>
+        <div class="benefit-item">
+            <h3>Easy Integration with Your Lifestyle</h3>
+            <p>Designed for everyone, from beginners to experienced fitness enthusiasts.</p>
+        </div>
+    </section>
+
+    <section id="cta">
+        <a href="{{ url_for('calculator') }}" class="btn btn-primary">Try the Full Calculator</a>
+    </section>
+</div>
+{% endblock %}

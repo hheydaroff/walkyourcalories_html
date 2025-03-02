@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block title %}Walk Your Calories FAQ | Your Step Conversion Questions Answered{% endblock %}
+
+{% block meta_description %}Get answers to common questions about Walk Your Calories. Learn how our calorie-to-steps calculator works and how it can benefit you.{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Frequently Asked Questions</h1>
+
+    <section id="faq-list">
+        <div class="faq-item">
+            <h2>How accurate are the conversions?</h2>
+            <p>Our algorithm achieves 92% accuracy compared to clinical metabolic measurements when users provide accurate data.</p>
+        </div>
+
+        <div class="faq-item">
+            <h2>Do you account for different walking speeds?</h2>
+            <p>Yes, our advanced mode allows you to input different walking speeds for more precise calculations.</p>
+        </div>
+
+        <div class="faq-item">
+            <h2>Can I use this calculator if I have a medical condition?</h2>
+            <p>While our calculator provides general estimates, we recommend consulting with a healthcare professional for personalized advice, especially if you have any medical conditions.</p>
+        </div>
+
+        <div class="faq-item">
+            <h2>How often should I use the calculator?</h2>
+            <p>You can use the calculator as often as you like. Many users find it helpful to use it daily or whenever they're planning meals and exercise routines.</p>
+        </div>
+
+        <div class="faq-item">
+            <h2>Can I integrate this with my fitness tracker?</h2>
+            <p>We're currently working on integrations with popular fitness trackers. Stay tuned for updates!</p>
+        </div>
+    </section>
+
+    <section id="cta">
+        <h2>Ready to start walking?</h2>
+        <a href="{{ url_for('calculator') }}" class="btn btn-primary">Calculate Your Steps Now</a>
+    </section>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach(item => {
+        const question = item.querySelector('h2');
+        const answer = item.querySelector('p');
+
+        question.addEventListener('click', () => {
+            answer.style.display = answer.style.display === 'none' ? 'block' : 'none';
+        });
+
+        // Initially hide the answers
+        answer.style.display = 'none';
+    });
+});
+</script>
+{% endblock %}

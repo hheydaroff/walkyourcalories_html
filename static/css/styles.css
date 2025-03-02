@@ -1,0 +1,332 @@
+/* Global Styles */
+:root {
+    --color-alabaster: #f3f0e8;
+    --color-sage: #b9b99d;
+    --color-ebony: #606c5a;
+    --color-davys-gray: #5e5e5e;
+    --color-platinum: #e6e4e0;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--color-davys-gray);
+    background-color: var(--color-alabaster);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    position: relative;
+    overflow-x: hidden;
+}
+
+#background-video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -2;
+    object-fit: cover;
+}
+
+/* Add an overlay to improve text readability */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(243, 240, 232, 0.7); /* var(--color-alabaster) with opacity */
+    z-index: -1;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Roboto', sans-serif;
+    color: var(--color-ebony);
+}
+
+h1 { font-size: 32px; }
+h2 { font-size: 24px; }
+h3 { font-size: 20px; }
+
+a {
+    color: var(--color-ebony);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Layout */
+.container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 20px;
+    box-sizing: border-box;
+    background-color: #ffffff;
+}
+
+/* Header and Navigation */
+header {
+    width: 100%;
+    padding: 2rem 0;
+    margin-bottom: 2rem;
+}
+
+nav {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+nav ul li {
+    margin: 0 0.5rem 0.5rem;
+}
+
+nav ul li a {
+    color: var(--color-ebony);
+    font-weight: bold;
+    transition: all 0.3s ease;
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+}
+
+nav ul li a:hover {
+    color: var(--color-sage);
+    text-decoration: none;
+    background-color: var(--color-platinum);
+}
+
+/* Main Content */
+main {
+    flex-grow: 1;
+}
+
+/* Footer */
+footer {
+    width: 100%;
+    padding: 2rem 0;
+    margin-top: 2rem;
+    color: var(--color-ebony);
+    text-align: center;
+}
+
+@media (max-width: 819px) {
+    .container {
+        padding: 2rem 15px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 0 0 0.5rem;
+    }
+}
+
+@media (min-width: 820px) {
+    body {
+        padding: 2rem 0;
+    }
+
+    .container, nav, footer {
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary {
+    background-color: var(--color-ebony);
+    color: var(--color-alabaster);
+}
+
+.btn-primary:hover {
+    background-color: #4a5446;
+}
+
+.btn-secondary {
+    background-color: var(--color-sage);
+    color: var(--color-ebony);
+}
+
+.btn-secondary:hover {
+    background-color: #a5a58d;
+}
+
+/* Forms */
+input[type="number"],
+input[type="text"] {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid var(--color-davys-gray);
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin-bottom: 0.5rem;
+    }
+}
+
+/* Utility Classes */
+.text-center { text-align: center; }
+.mt-1 { margin-top: 1rem; }
+.mb-1 { margin-bottom: 1rem; }
+.mt-2 { margin-top: 2rem; }
+.mb-2 { margin-bottom: 2rem; }
+
+/* Section Spacing */
+section {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--color-platinum);
+}
+
+section:last-child {
+    border-bottom: none;
+}
+
+/* Styles for the "Did You Know?" sliding gallery */
+.carousel-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    background-color: var(--color-platinum);
+    border-radius: 8px;
+    padding: 1rem 0;
+}
+
+.carousel-track {
+    display: flex;
+    width: 1000%; /* 10 slides * 100% */
+    animation: slide 90s linear infinite;
+}
+
+.carousel-slide {
+    flex: 0 0 10%; /* Each slide takes 10% of the track width */
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-slide p {
+    margin: 0;
+    font-size: 1em;
+    font-style: italic;
+    color: var(--color-ebony);
+    text-align: center;
+    position: relative;
+    padding: 0 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 100%;
+    line-height: 1.4;
+}
+
+.carousel-slide p::before,
+.carousel-slide p::after {
+    content: '"';
+    font-size: 1.5em;
+    color: var(--color-sage);
+    position: absolute;
+    top: -5px;
+}
+
+.carousel-slide p::before {
+    left: -5px;
+}
+
+.carousel-slide p::after {
+    right: -5px;
+}
+
+@keyframes slide {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-90%); /* Move left by 9 slides (90% of total width) */
+    }
+}
+
+/* Pause animation on hover */
+.carousel-container:hover .carousel-track {
+    animation-play-state: paused;
+}
+
+/* Features List */
+#features ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+#features li {
+    margin-bottom: 1rem;
+    padding-left: 30px;
+    position: relative;
+}
+
+#features li::before {
+    content: '✓';
+    color: var(--color-sage);
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-weight: bold;
+}
+
+/* Call-to-Action Button */
+#cta {
+    text-align: center;
+}
+
+#cta .btn {
+    font-size: 1.2em;
+    padding: 0.75rem 1.5rem;
+    transition: all 0.3s ease;
+}
+
+#cta .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}

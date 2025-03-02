@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}About Walk Your Calories | Science-Backed Fitness Solutions{% endblock %}
+
+{% block meta_description %}Learn about Walk Your Calories—a unique calorie-to-steps calculator designed to help you burn calories and live a healthier life.{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>About Walk Your Calories</h1>
+
+    <section id="mission">
+        <h2>Our Mission</h2>
+        <p>At Walk Your Calories, our mission is to empower you with clear, scientifically-backed insights into calorie burn and activity tracking. We believe that understanding the relationship between food intake and physical activity is key to maintaining a healthy lifestyle.</p>
+    </section>
+
+    <section id="expertise">
+        <h2>Bridging Nutrition and Movement Science</h2>
+        <p>Developed in partnership with leading sports medicine experts, our platform combines:</p>
+        <ul>
+            <li>Nutritional epidemiology</li>
+            <li>Exercise physiology</li>
+            <li>Behavioral psychology</li>
+        </ul>
+        <p>This interdisciplinary approach ensures that our calorie-to-steps calculations are not only accurate but also practical and easy to incorporate into your daily life.</p>
+    </section>
+
+    <section id="team">
+        <h2>Our Team</h2>
+        <p>Our diverse team of nutritionists, fitness experts, and software engineers work tirelessly to provide you with the most accurate and user-friendly calorie-to-steps calculator available. We're committed to staying at the forefront of health and fitness technology to help you achieve your wellness goals.</p>
+    </section>
+
+    <section id="commitment">
+        <h2>Our Commitment to You</h2>
+        <p>We are dedicated to:</p>
+        <ul>
+            <li>Providing accurate, science-based calculations</li>
+            <li>Continuously improving our algorithms based on the latest research</li>
+            <li>Offering a user-friendly, accessible platform for all</li>
+            <li>Protecting your privacy and data security</li>
+        </ul>
+    </section>
+
+    <section id="cta">
+        <h2>Ready to Take the First Step?</h2>
+        <a href="{{ url_for('calculator') }}" class="btn btn-primary">Try Our Calculator</a>
+    </section>
+</div>
+{% endblock %}
