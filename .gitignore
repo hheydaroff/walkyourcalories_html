@@ -53,8 +53,8 @@ develop-eggs/
 .installed.cfg
 
 
-# git
-.git
-
-#cline_docs stuff
+# Project specific
 cline_docs/
+
+# Git
+.git
