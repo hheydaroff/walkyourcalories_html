@@ -7,7 +7,7 @@
 ## Main Content Structure
 
 1. Hero Section
-   - Heading: Transform Your Calories into Steps
+   - Heading: Walk Your Calories – Calorie to Steps Calculator
    - Subheading: Discover how many steps it takes to burn off your favorite foods. Our innovative calculator turns calorie counts into achievable walking targets, helping you manage your weight and improve your overall health.
 
 2. Calculator Widget
