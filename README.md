@@ -22,6 +22,7 @@ Walk Your Calories is a web application that helps users estimate the number of 
 - Multiple informational pages (Home, How It Works, Benefits, FAQ, About Us)
 - Reusable calculator widget across pages
 - Dockerized for easy deployment
+- Nginx reverse proxy for improved performance and security
 - Unit tests for core functionality
 
 ## Technologies Used
@@ -36,11 +37,13 @@ Walk Your Calories is a web application that helps users estimate the number of 
 - DevOps:
   - Docker
   - Docker Compose
+  - Nginx (as reverse proxy)
 
 ## Prerequisites
 - Python 3.9+
 - Docker and Docker Compose (for containerized deployment)
 - Node.js and npm (for frontend development)
+- OpenSSL (for generating SSL certificates)
 
 ## Installation
 
@@ -67,6 +70,14 @@ Walk Your Calories is a web application that helps users estimate the number of 
    ```
    Edit the `.env` file and set the appropriate values for your environment.
 
+5. Generate SSL certificates for Nginx:
+   ```
+   mkdir certs
+   openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout certs/nginx.key -out certs/nginx.crt
+   ```
+   
+   **Important:** Do not commit the generated SSL certificates to the repository. They contain sensitive information and should be kept private. The `certs/` directory is included in the `.gitignore` file to prevent accidental commits.
+
 ## Usage
 
 To run the application locally:
@@ -75,20 +86,30 @@ To run the application locally:
 python -m src.app
 ```
 
-The application will be available at `http://localhost:5001`.
+The application will be available at `http://localhost:5000`.
 
 ## Docker Deployment
 
 To run the application using Docker:
 
-1. Build and start the container:
+1. Generate SSL certificates for Nginx (if you haven't already):
+   ```
+   mkdir certs
+   openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout certs/nginx.key -out certs/nginx.crt
+   ```
+   
+   **Note:** Ensure that the `certs/` directory and its contents are not tracked by git. They should be listed in your `.gitignore` file.
+
+2. Build and start the containers:
    ```
    docker-compose up --build
    ```
 
-2. The application will be available at `http://localhost:5001`.
+3. The application will be available at:
+   - HTTP: `http://localhost` or `http://localhost:81`
+   - HTTPS: `https://localhost`
 
-To stop the container:
+To stop the containers:
 
 ```
 docker-compose down
@@ -146,21 +167,11 @@ project_root/
 ├── .gitignore
 ├── docker-compose.yml
 ├── Dockerfile
+├── nginx.conf
 ├── LICENSE
 ├── README.md
 └── requirements.txt
 ```
-
-## Frontend Implementation Timeline
-
-We are currently in the process of implementing a new frontend design and structure. The implementation is planned to be completed over a 10-week period, divided into 5 sprints. Each sprint is 2 weeks long and focuses on specific aspects of the frontend development. For more details, please refer to the [Frontend Implementation Timeline](cline_docs/frontend_implementation_timeline.md).
-
-Key milestones:
-1. End of Sprint 1 (Week 2): Basic structure and calculator widget completed
-2. End of Sprint 2 (Week 4): All main pages implemented with integrated calculator widget
-3. End of Sprint 3 (Week 6): Fully responsive and optimized frontend
-4. End of Sprint 4 (Week 8): Thoroughly tested and refined frontend
-5. End of Sprint 5 (Week 10): Production-ready frontend prepared for launch
 
 ## Contributing
 Contributions are welcome! Please feel free to submit a Pull Request.

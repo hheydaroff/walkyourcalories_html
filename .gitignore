@@ -58,3 +58,8 @@ cline_docs/
 
 # Git
 .git
+
+# SSL Certificates
+certs/
+*.crt
+*.key
