@@ -62,6 +62,9 @@
 3. Optimizing frontend performance and accessibility
 
 ## Recent Changes
+- [2025-03-02] Updated calculator logic in src/services/calculator.py
+- [2025-03-02] Updated import statements in src/services/__init__.py and src/routes/main.py
+- [2025-03-02] Updated unit tests in tests/test_calculator.py
 - [2025-03-01] Created detailed frontend implementation plan
 - [2025-03-01] Updated tech stack documentation
 - [2025-03-01] Created content structure for new pages
@@ -69,11 +72,12 @@
 - [2025-03-01] Updated styling for a more modern look across the site
 
 ## Upcoming Tasks
-1. Break down frontend implementation into smaller, manageable tasks
-2. Create a detailed timeline or sprint plan for frontend implementation
-3. Implement core pages and integrate calculator widget
-4. Enhance responsive design and improve accessibility
-5. Conduct thorough testing and refinement
+1. Verify that all parts of the application are working correctly with the new calculator logic
+2. Break down frontend implementation into smaller, manageable tasks
+3. Create a detailed timeline or sprint plan for frontend implementation
+4. Implement core pages and integrate calculator widget
+5. Enhance responsive design and improve accessibility
+6. Conduct thorough testing and refinement
 
 ## Potential Future Improvements
 - Implement user authentication and profiles
@@ -84,4 +88,4 @@
 - Explore progressive web app (PWA) capabilities
 - Implement internationalization and localization
 
-This summary reflects the current state of the Walk Your Calories project, incorporating recent changes and ongoing tasks. The focus is now on implementing the new frontend design and structure while maintaining the existing backend functionality.
+This summary reflects the current state of the Walk Your Calories project, incorporating recent changes and ongoing tasks. The focus is now on implementing the new frontend design and structure while maintaining and improving the existing backend functionality.

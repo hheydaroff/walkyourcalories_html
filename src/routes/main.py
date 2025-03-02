@@ -1,5 +1,5 @@
 from flask import render_template, request, jsonify
-from src.services import calculate_steps
+from src.services.calculator import calculate_steps_to_burn_calories
 from src.utils import validate_input
 
 def register_routes(app):
@@ -42,9 +42,9 @@ def register_routes(app):
         try:
             calories = float(calories) if calories else 0
             weight = float(weight) if weight else 70
-            pace = pace if pace else 'moderate'
+            pace = pace if pace else 'average'
 
-            steps = calculate_steps(calories, weight, pace)
+            steps = calculate_steps_to_burn_calories(weight, calories, pace)
             return jsonify({"steps": steps})
         except Exception as e:
             app.logger.error(f"Error calculating steps: {str(e)}")

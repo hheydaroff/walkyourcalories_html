@@ -1,1 +1,1 @@
-from .calculator import calculate_steps
+from src.services.calculator import calculate_steps_to_burn_calories
