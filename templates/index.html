@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 
-{% block title %}Walk Your Calories: Calorie to Steps Calculator | Fitness Tracking Tool{% endblock %}
+{% block title %}Transform Calories into Achievable Steps | Walk Your Calories{% endblock %}
 
-{% block meta_description %}Convert food calories to walking steps instantly. Make informed health decisions with our science-backed calorie-to-steps calculator. Try it today!{% endblock %}
+{% block meta_description %}Convert calories into walking steps instantly with our science-backed calculator. Track your fitness, manage weight, and reach your health goals today!{% endblock %}
 
 {% block content %}
 <div class="container">
@@ -25,8 +25,8 @@
             </div>
         </foreignObject>
     </svg>
-    <h2>Calorie to Steps Calculator</h2>
-    <p>Discover how many steps it takes to burn off your favorite foods. Our innovative calculator turns calorie counts into achievable walking targets, helping you manage your weight and improve your overall health.</p>
+    <h2>Transform Calories into Achievable Steps</h2>
+    <p>Discover the easiest way to turn your calorie intake into daily walking goals. Our calculator offers accurate, science-backed conversions so you can track your fitness progress effortlessly.</p>
 
     <section id="facts-carousel">
         <h2>Did You Know?</h2>
@@ -66,18 +66,20 @@
         </div>
     </section>
 
-    <section id="calculator">
-        {% include '_calculator_widget.html' %}
-    </section>
+
 
     <section id="features">
-        <h2>Key Features</h2>
-        <ul>
-            <li>Instant calorie-to-step conversions</li>
-            <li>Customizable profiles accounting for weight and walking pace</li>
-            <li>Data-driven calculations for accurate results</li>
-            <li>Easy-to-use interface for quick estimations</li>
-        </ul>
+        <h2>Turn Calories into Steps in Seconds</h2>
+        <p>Our easy-to-use calculator helps you quickly convert calorie intake into a targeted step count. Designed with simplicity in mind, it only requires your weight, the number of calories, and your walking pace to deliver personalized results.</p>
+        <h3>How It Works</h3>
+        <ol>
+            <li><strong>Enter Your Weight:</strong> Input your current weight for accurate results.</li>
+            <li><strong>Input Calories:</strong> Type in the number of calories you want to convert.</li>
+            <li><strong>Set Your Pace:</strong> Choose your walking pace to tailor the calculation.</li>
+        </ol>
+    </section>
+    <section id="calculator">
+        {% include '_calculator_widget.html' %}
     </section>
 
     <section id="cta">

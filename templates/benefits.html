@@ -1,31 +1,38 @@
 {% extends "base.html" %}
 
-{% block title %}Benefits of Walk Your Calories | Calorie to Steps Converter{% endblock %}
+{% block title %}Transform Calories into Achievable Steps | Walk Your Calories{% endblock %}
 
-{% block meta_description %}Explore the benefits of our calorie-to-steps calculator. Achieve weight loss, track activity, and understand calorie burn with precision.{% endblock %}
+{% block meta_description %}Convert calories into walking steps instantly with our science-backed calculator. Track your fitness, manage weight, and reach your health goals today!{% endblock %}
 
 {% block content %}
 <div class="container">
-    <h1>Why Use Walk Your Calories?</h1>
+    <h1>Transform Calories into Achievable Steps</h1>
+
+    <section id="intro">
+        <p>Discover the easiest way to turn your calorie intake into daily walking goals. Our calculator offers accurate, science-backed conversions so you can track your fitness progress effortlessly.</p>
+    </section>
 
     <section id="benefits">
-        <h2>Benefits of Using Our Calculator</h2>
         <div class="benefit-item">
-            <h3>Data-Driven Decisions for Better Health</h3>
-            <p>Make informed choices about your diet and exercise routine with real-time, scientifically-backed calculations.</p>
+            <h3>Instant Conversion</h3>
+            <p>Get real-time step counts for thousands of food items, helping you make informed decisions about your diet and exercise routine.</p>
         </div>
         <div class="benefit-item">
-            <h3>Tailored for Weight Loss and Fitness</h3>
-            <p>Set achievable goals and track your progress effectively.</p>
+            <h3>Personalized Results</h3>
+            <p>Adjust for your weight, height, and stride length to get tailored recommendations for your fitness journey.</p>
         </div>
         <div class="benefit-item">
-            <h3>Easy Integration with Your Lifestyle</h3>
-            <p>Designed for everyone, from beginners to experienced fitness enthusiasts.</p>
+            <h3>Seamless Integration</h3>
+            <p>Easily sync with popular fitness trackers, making it simple to incorporate into your daily routine.</p>
+        </div>
+        <div class="benefit-item">
+            <h3>Data-Driven Accuracy</h3>
+            <p>Leverages advanced algorithms for precise calculations, ensuring you get the most accurate step counts possible.</p>
         </div>
     </section>
 
     <section id="cta">
-        <a href="{{ url_for('calculator') }}" class="btn btn-primary">Try the Full Calculator</a>
+        <a href="{{ url_for('calculator') }}" class="btn btn-primary">Try Our Calorie-to-Steps Calculator Now</a>
     </section>
 </div>
 {% endblock %}
